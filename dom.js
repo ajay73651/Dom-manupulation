@@ -64,21 +64,66 @@
 // }
 
 // GET ELEMENT BY TAGNAME
-var li = document.getElementsByTagName("li");
-console.log(li);
-console.log(li[1]);
-li[1].textContent = "Hello 2";
-li[1].style.fontWeight = "bold";
+// var li = document.getElementsByTagName("li");
+// console.log(li);
+// console.log(li[1]);
+// li[1].textContent = "Hello 2";
+// li[1].style.fontWeight = "bold";
 // li[1].style.backgroundColor = "yellow";
 
 //gives error
 //li.style.backgroundColor = "gray";
 
 //correct
-for (var i = 0; i < li.length; i++) {
-  li[i].style.backgroundColor = "#ccc";
-}
+// for (var i = 0; i < li.length; i++) {
+//   li[i].style.backgroundColor = "#ccc";
+// }
 
 //querySelector
-var header = document.querySelector("#main-header");
-header.style.borderBottom = "solid 4px #ccc";
+// var header = document.querySelector("#main-header");
+// header.style.borderBottom = "solid 4px #ccc";
+
+// var input = document.querySelector("input");
+// input.value = "Hello World";
+
+// var submit = document.querySelector('input[type = "submit"]');
+// submit.value = "SEND";
+
+// var item = document.querySelector(".list-group-item");
+// item.style.color = "red";
+
+// var lastItem = document.querySelector(".list-group-item:last-child");
+// lastItem.style.color = "blue";
+
+// var secondItem = document.querySelector(".list-group-item:nth-child(2)");
+// secondItem.style.color = "coral";
+
+//QUERYSELECTORALL
+// var title = document.querySelectorAll(".title");
+// console.log(title);
+// title[0].textContent = "Hello";
+
+// var odd = document.querySelectorAll("li:nth-child(odd)");
+// var even = document.querySelectorAll("li:nth-child(even)");
+// for (var i = 0; i < odd.length; i++) {
+//   odd[i].style.backgroundColor = "#f4f4f4";
+//   even[i].style.backgroundColor = "#ccc";
+// }
+
+//------------task 6
+// Make the 2nd item have green background color
+var secondItem = document.querySelector(".list-group-item:nth-child(2)");
+secondItem.style.backgroundColor = "green";
+// Make the 3rd item invisible
+var thirdItem = document.querySelector(".list-group-item:nth-child(3)");
+thirdItem.style.visibility = "hidden";
+
+// Using QuerySelectorALL change the font color to green for 2nd item in the item list
+var secondItem = document.querySelector(".list-group-item:nth-child(2)");
+secondItem.style.color = "green";
+// Choose all the odd elements and make their background green using QuerySelectorALL
+var odd = document.querySelectorAll("li:nth-child(odd)");
+for (var i = 0; i < odd.length; i++) {
+  odd[i].style.backgroundColor = "green";
+}
+//note: loop will stop because 3rd row invisible
