@@ -25,17 +25,17 @@
 var headerTitle = document.getElementById("header-title");
 var header = document.getElementById("main-header");
 
-// console.log(headerTitle);
-// headerTitle.textContent = "Hello";
-// headerTitle.innerHTML = "GoodBye";
+console.log(headerTitle);
+headerTitle.textContent = "Hello";
+headerTitle.innerHTML = "GoodBye";
 
-// // this will show all parent and child id/class  text under the id : header-title
-// console.log(headerTitle.textContent);
-// //this will show only parent class or id
-// console.log(headerTitle.innerText);
+// this will show all parent and child id/class  text under the id : header-title
+console.log(headerTitle.textContent);
+//this will show only parent class or id
+console.log(headerTitle.innerText);
 
-// headerTitle.innerHTML = "<h3>Hello</h3>";
-// headerTitle.style.borderBottom = "solid 3px black";
-// header.style.borderBottom = "solid 3px black";
+headerTitle.innerHTML = "<h3>Hello</h3>";
+headerTitle.style.borderBottom = "solid 3px black";
+header.style.borderBottom = "solid 3px black";
 
 //GET ELEMENT BY CLASSNAME
