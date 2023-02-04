@@ -1,129 +1,102 @@
-//EXAMINE THE DOCMENT OBJECT
+//TRAVERSING THE DOM
+var itemList = document.querySelector("#items");
 
-// console.log(document);
-// console.log(document.domain);
-// console.log(document.URL);
-// console.log(document.title);
-// // document.title = 123;
-// console.log(document.doctype);
-// console.log(document.head);
-// console.log(document.body);
-// console.log(document.all);
-// console.log(document.all[10]);
+//parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = "#f4f4f4";
+// console.log(itemList.parentNode.parentNode.parentNode);
 
-// //this is not write way to select anything from the dom: it will be change if html update
-// document.all[10].textContent = "Hello";
-// console.log(document.forms);
-// console.log(document.forms[0]);
-// console.log(document.links);
-// console.log(document.images);
+// parentElement;
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = "#f4f4f4";
+// console.log(itemList.parentElement.parentElement.parentElement);
 
-//GET ELEMENT BY ID
-// console.log(document.getElementById("header-title"));
+//NOTE : PareElement and parentNode Both are working same
 
-// var headerTitle = document.getElementById("header-title");
-// var header = document.getElementById("main-header");
+//childNode -------------//don't use this, practice more using children
+// console.log(itemList.childNodes);
+//children
+// console.log(itemList.children);
 
-// console.log(headerTitle);
-// headerTitle.textContent = "Hello";
-// headerTitle.innerHTML = "GoodBye";
+//difference b/w childNode And children
+//--childNode returns child node (elements, text nodes, and comment nodes).
+//-- children returns child elements (not text and comment nodes)
+//-- suggetion: you have to use children
 
-// // this will show all parent and child id/class  text under the id : header-title
-// console.log(headerTitle.textContent);
-// //this will show only parent class or id
-// console.log(headerTitle.innerText);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = "yellow";
 
-// headerTitle.innerHTML = "<h3>Hello</h3>";
-// headerTitle.style.borderBottom = "solid 3px black";
-// header.style.borderBottom = "solid 3px black";
+//firstChild ---------------//don't use this too, practice more using firstChildElement
+// console.log(itemList.firstChild);
+//firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = "Hello 1";
 
-//GET ELEMENT BY CLASSNAME
-// var items = document.getElementsByClassName("list-group-item");
-// console.log(items);
-// console.log(items[1]);
-// items[1].textContent = "Hello 2";
-// items[1].style.fontWeight = "bold";
-// items[1].style.backgroundColor = "yellow";
+//lastChild ---------------//don't use this too, practice more using firstChildElement
+// console.log(itemList.lastChild);
+//lastElementChild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = "Hello 4";
 
-// //gives error
-// // items.style.backgroundColor = "gray";
+//--------------------------------------------
 
-//correct
-// for (var i = 0; i < items.length; i++) {
-//   items[i].style.backgroundColor = "gray";
-// }
+//nextSibling
+// console.log(itemList.nextSibling);
+//nextElementSibling
+// console.log(itemList.nextElementSibling); //output in console null because itemList have no next sibling
 
-// //--------------task
-// var items = document.getElementsByClassName("list-group-item");
-// // Make the 3 rd element in the list have green background color
-// items[2].style.backgroundColor = "green";
+//previousSibling
+// console.log(itemList.previousSibling); //text
+//previousElementSibling
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = "green";
 
-// // Make all the elements in the list have bold color font
-// for (var i = 0; i < items.length; i++) {
-//   items[i].style.fontWeight = "bold";
-// }
+//------------------------------------------------
+//------createElement
 
-// GET ELEMENT BY TAGNAME
-// var li = document.getElementsByTagName("li");
-// console.log(li);
-// console.log(li[1]);
-// li[1].textContent = "Hello 2";
-// li[1].style.fontWeight = "bold";
-// li[1].style.backgroundColor = "yellow";
+//Create a div
+// var newDiv = document.createElement("div");
 
-//gives error
-//li.style.backgroundColor = "gray";
+//add class
+// newDiv.className = "Hello";
 
-//correct
-// for (var i = 0; i < li.length; i++) {
-//   li[i].style.backgroundColor = "#ccc";
-// }
+//add id
+// newDiv.id = "Hello-1";
 
-//querySelector
-// var header = document.querySelector("#main-header");
-// header.style.borderBottom = "solid 4px #ccc";
+//add attribute
+// newDiv.setAttribute("title", "Hello Div");
 
-// var input = document.querySelector("input");
-// input.value = "Hello World";
+//create text node
+// var newDivText = document.createTextNode("Hello World!");
+//add text to div
+// newDiv.appendChild(newDivText);
 
-// var submit = document.querySelector('input[type = "submit"]');
-// submit.value = "SEND";
+// var container = document.querySelector("header .container");
+// var h1 = document.querySelector("header h1");
+// console.log(h1);
 
-// var item = document.querySelector(".list-group-item");
-// item.style.color = "red";
+// console.log(newDiv);
 
-// var lastItem = document.querySelector(".list-group-item:last-child");
-// lastItem.style.color = "blue";
+// newDiv.style.fontSize = "30px";
+// container.insertBefore(newDiv, h1);
 
-// var secondItem = document.querySelector(".list-group-item:nth-child(2)");
-// secondItem.style.color = "coral";
+//......................................
+//.....................................
+//------------Task 7
+//create new div
+var newDiv = document.createElement("div");
+//create text node
+var newDivText = document.createTextNode("Hello World!");
+// add text to div
+newDiv.appendChild(newDivText);
 
-//QUERYSELECTORALL
-// var title = document.querySelectorAll(".title");
-// console.log(title);
-// title[0].textContent = "Hello";
+var container = document.querySelector("header .container");
+var h1 = document.querySelector("header h1");
+container.insertBefore(newDiv, h1);
+var newDiv = document.createElement("div");
+var newDivText = document.createTextNode("Hello World!");
 
-// var odd = document.querySelectorAll("li:nth-child(odd)");
-// var even = document.querySelectorAll("li:nth-child(even)");
-// for (var i = 0; i < odd.length; i++) {
-//   odd[i].style.backgroundColor = "#f4f4f4";
-//   even[i].style.backgroundColor = "#ccc";
-// }
-
-//------------task 6
-// Make the 2nd item have green background color
-var secondItem = document.querySelector(".list-group-item:nth-child(2)");
-secondItem.style.backgroundColor = "green";
-// Make the 3rd item invisible
-var thirdItem = document.querySelector(".list-group-item:nth-child(3)");
-thirdItem.style.visibility = "hidden";
-
-// Using QuerySelectorALL change the font color to green for 2nd item in the item list
-var secondItem = document.querySelector(".list-group-item:nth-child(2)");
-secondItem.style.color = "green";
-// Choose all the odd elements and make their background green using QuerySelectorALL
-var odd = document.querySelectorAll("li:nth-child(odd)");
-for (var i = 0; i < odd.length; i++) {
-  odd[i].style.backgroundColor = "green";
-}
-//note: loop will stop because 3rd row invisible
+newDiv.appendChild(newDivText);
+var item1 = document.querySelector("div ul");
+var li1 = document.querySelector("ul li");
+item1.insertBefore(newDiv, li1);
