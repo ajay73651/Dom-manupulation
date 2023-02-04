@@ -53,12 +53,32 @@
 //   items[i].style.backgroundColor = "gray";
 // }
 
-//--------------task
-var items = document.getElementsByClassName("list-group-item");
-// Make the 3 rd element in the list have green background color
-items[2].style.backgroundColor = "green";
+// //--------------task
+// var items = document.getElementsByClassName("list-group-item");
+// // Make the 3 rd element in the list have green background color
+// items[2].style.backgroundColor = "green";
 
-// Make all the elements in the list have bold color font
-for (var i = 0; i < items.length; i++) {
-  items[i].style.fontWeight = "bold";
+// // Make all the elements in the list have bold color font
+// for (var i = 0; i < items.length; i++) {
+//   items[i].style.fontWeight = "bold";
+// }
+
+// GET ELEMENT BY TAGNAME
+var li = document.getElementsByTagName("li");
+console.log(li);
+console.log(li[1]);
+li[1].textContent = "Hello 2";
+li[1].style.fontWeight = "bold";
+// li[1].style.backgroundColor = "yellow";
+
+//gives error
+//li.style.backgroundColor = "gray";
+
+//correct
+for (var i = 0; i < li.length; i++) {
+  li[i].style.backgroundColor = "#ccc";
 }
+
+//querySelector
+var header = document.querySelector("#main-header");
+header.style.borderBottom = "solid 4px #ccc";
