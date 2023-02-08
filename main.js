@@ -16,7 +16,8 @@ function addItem(e) {
   //Get input value
   var newItem = document.getElementById("Item").value;
   var newDescription = document.getElementById("description").value;
-
+  localStorage.setItem("addItem", newItem);
+  localStorage.setItem("addItem", newDescription);
   //create new li element
   var li = document.createElement("li");
 
@@ -56,7 +57,7 @@ function removeItem(e) {
   }
 }
 
-//filter items function
+//filter items  AND escriptions function
 function filterItems(e) {
   //convert text to lowercase
   var text = e.target.value.toLowerCase();
@@ -76,3 +77,85 @@ function filterItems(e) {
     }
   });
 }
+
+// ------------------------------------------------------------------------
+
+/*
+//-------Application (localStorage, sessionStorage, cookies)
+//local storage
+//set local storage value
+localStorage.setItem("name", "bob");
+//get local storage value
+// console.log(localStorage.getItem("name"));
+//remove set value
+localStorage.removeItem("name");
+console.log(localStorage.getItem("name"));
+
+//session storage
+sessionStorage.setItem("name", "john");
+console.log(sessionStorage.getItem("name"));
+sessionStorage.removeItem("name");
+sessionStorage.setItem("name", "bob");
+//Note: it will override the value whereas john
+//so output become name bob on the place of name john
+
+//cookies
+document.cookie =
+  "name = kyle; expires = " + new Date(2024, 0, 1).toUTCString();
+
+document.cookie =
+  "lastName = Smith; expires = " + new Date(9999, 0, 1).toUTCString();
+
+console.log(document.cookie);
+
+// ----------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+
+//-----------------------Debugging---------------------------------------------------------
+let x = 1;
+// console.log("aaaaa", x);
+let y = 2;
+console.log("zzzz", "x =", x, "y=", y);
+
+const f = function () {};
+
+console.log("f=", f); // output : f= ƒ () {}
+
+console.dir(f); // we can get more details using dir
+
+let a = [1, 2, 3];
+console.log(a);
+console.log(JSON.parse(JSON.stringify(a)));
+a.push(4);
+console.log(a);
+console.log(JSON.parse(JSON.stringify(a)));
+// ...........................
+console.table(a, ["age", "eyeColor"]);
+
+// --------------------------------
+console.time("st");
+console.time("something else");
+setTimeout(() => {
+  console.timeEnd("st");
+}, 5000);
+console.timeEnd("something else");
+
+//------------------------------------
+let p = 1;
+let q = 2;
+
+debugger;
+
+/*
+What is HTML Web Storage?
+With web storage, web applications can store data locally within the user's browser.
+Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.
+Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
+
+window.localStorage - stores data with no expiration date
+window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+
+*/
+
+// -----------------------------------------------------------------------------
